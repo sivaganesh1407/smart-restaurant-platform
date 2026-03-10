@@ -26,6 +26,16 @@ public class MenuService {
         return menuRepository.findById(id);
     }
 
+    public MenuItem updateMenuItem(Long id, MenuItem menuItem) {
+        MenuItem existing = menuRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Menu item not found: " + id));
+        existing.setName(menuItem.getName());
+        existing.setPrice(menuItem.getPrice());
+        existing.setCategory(menuItem.getCategory());
+        existing.setAvailable(menuItem.getAvailable());
+        return menuRepository.save(existing);
+    }
+
     public void deleteMenuItem(Long id) {
         menuRepository.deleteById(id);
     }

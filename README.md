@@ -4,7 +4,7 @@ A backend system for a restaurant management platform that supports **menu manag
 
 ## Features
 
-- **Menu Management** — Add, list, get, and delete menu items
+- **Menu Management** — Full CRUD with validation (add, list, get, update, delete)
 - **Order Processing** — Create orders with line items, update order status (PENDING → COMPLETED)
 - **Inventory Tracking** — Track stock, reorder thresholds, and low-stock alerts
 - **Sales Analytics** — Revenue summary and top-selling items over a date range

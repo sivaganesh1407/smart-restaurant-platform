@@ -26,9 +26,10 @@ mvn spring-boot:run -Dspring-boot.run.profiles=dev
 ### Menu
 | Method | Path | Description |
 |--------|------|-------------|
-| POST | /menu | Add menu item |
+| POST | /menu | Add menu item (validated: name, price ≥ 0, category, available) |
 | GET | /menu | List all menu items |
 | GET | /menu/{id} | Get menu item by id |
+| PUT | /menu/{id} | Update menu item |
 | DELETE | /menu/{id} | Delete menu item |
 
 ### Orders
@@ -58,6 +59,10 @@ mvn spring-boot:run -Dspring-boot.run.profiles=dev
 ## Tech stack
 
 - Java 11, Spring Boot 2.7, Maven  
-- Spring Web, Spring Data JPA  
+- Spring Web, Spring Data JPA, Bean Validation  
 - MySQL (production) / H2 (dev profile)  
 - Lombok  
+
+## Tests
+
+- `mvn test` — runs unit tests (e.g. MenuServiceTest with JUnit 5 and Mockito).
