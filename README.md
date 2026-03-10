@@ -51,6 +51,8 @@ mvn spring-boot:run
 
 See [backend/README.md](backend/README.md) for full API documentation.
 
+**Output & evidence:** Screenshots and a short “work done” summary are in [docs/](docs/) (see [docs/EVIDENCE.md](docs/EVIDENCE.md)). Add your own run screenshots there to show the project working.
+
 ## API Overview
 
 | Area        | Examples |
