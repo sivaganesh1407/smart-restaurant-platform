@@ -20,7 +20,7 @@ This document summarizes what was implemented and how to verify it with the scre
 1. Started the backend with H2 (no MySQL needed):
    ```bash
    cd backend
-   mvn spring-boot:run -Dspring-boot.run.profiles=dev
+   mvn spring-boot:run
    ```
 2. Opened H2 Console at `http://localhost:8080/h2-console` with JDBC URL `jdbc:h2:mem:restaurant`, user `sa`, no password.
 3. Inserted sample menu items in H2, then called the APIs (browser and curl).
@@ -49,8 +49,8 @@ This document summarizes what was implemented and how to verify it with the scre
 - **Root `README.md`** — Project overview, tech stack, quick start.
 - **`backend/README.md`** — API list and run instructions.
 
-All of this is committed and pushed to the GitHub repo.
+All of this is suitable to keep in a public repository (no credentials in source).
 
 ---
 
-*Add your screenshot files to this folder, then commit and push to show the working output on your profile.*
+*Add your screenshot files to this folder, then commit as needed for your portfolio.*

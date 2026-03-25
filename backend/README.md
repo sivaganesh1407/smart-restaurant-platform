@@ -4,19 +4,23 @@ Spring Boot backend for menu management, orders, inventory, and sales analytics.
 
 ## Run the application
 
-**With MySQL** (default):
+**Default — H2 in-memory** (no MySQL install):
 
 ```bash
 mvn spring-boot:run
 ```
 
-Set `spring.datasource.url`, `spring.datasource.username`, and `spring.datasource.password` in `src/main/resources/application.properties` for your MySQL instance.
-
-**Without MySQL** (H2 in-memory):
+**With MySQL** — use profile `mysql` and environment variables (do not put real passwords in tracked files):
 
 ```bash
-mvn spring-boot:run -Dspring-boot.run.profiles=dev
+export MYSQL_USERNAME=root
+export MYSQL_PASSWORD=yourpassword
+mvn spring-boot:run -Dspring-boot.run.profiles=mysql
 ```
+
+Optional: `MYSQL_URL` for a custom JDBC URL. For one-off local overrides, use `application-local.properties` (gitignored).
+
+**Legacy:** `-Dspring-boot.run.profiles=dev` still works; defaults are already H2.
 
 - Server: http://localhost:8080  
 - H2 console: http://localhost:8080/h2-console (JDBC URL: `jdbc:h2:mem:restaurant`, user: `sa`, password: empty)
@@ -60,9 +64,13 @@ mvn spring-boot:run -Dspring-boot.run.profiles=dev
 
 - Java 11, Spring Boot 2.7, Maven  
 - Spring Web, Spring Data JPA, Bean Validation  
-- MySQL (production) / H2 (dev profile)  
+- H2 (default) / MySQL (`mysql` profile)  
 - Lombok  
 
 ## Tests
 
 - `mvn test` — runs unit tests (e.g. MenuServiceTest with JUnit 5 and Mockito).
+
+## Note on startup logs
+
+`spring.jpa.open-in-view=false` is set in `application.properties` so you should **not** see the Hibernate “open-in-view is enabled by default” warning. If it still appears, run `mvn clean spring-boot:run` so the latest `src/main/resources` is on the classpath.

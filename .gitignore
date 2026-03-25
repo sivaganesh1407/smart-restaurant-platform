@@ -38,3 +38,11 @@ backend/target/
 # OS
 .DS_Store
 Thumbs.db
+
+# Secrets and local overrides (never commit real credentials)
+.env
+.env.*
+application-local.properties
+application-secret.properties
+.npmrc
+*.pem

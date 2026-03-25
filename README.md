@@ -1,5 +1,7 @@
 # Smart Restaurant Platform
 
+**Disclaimer:** This is an **independent, personal/educational project**. It is not affiliated with, endorsed by, or connected to any employer or commercial organization.
+
 A backend system for a restaurant management platform that supports **menu management**, **order processing**, **inventory tracking**, and **sales analytics** — simulating a modern restaurant POS backend.
 
 ## Features
@@ -27,27 +29,33 @@ backend/
 │   ├── model/        # Entities and DTOs
 │   └── config/       # App config and exception handling
 ├── src/main/resources/
-│   ├── application.properties      # MySQL (default)
-│   └── application-dev.properties  # H2 in-memory (no MySQL needed)
+│   ├── application.properties         # H2 in-memory (default, no DB install)
+│   ├── application-mysql.properties   # MySQL (profile `mysql`)
+│   └── application-dev.properties     # Legacy no-op profile (see backend README)
 └── README.md          # API overview and run instructions
 ```
 
 ## Quick Start
 
-**Run with H2 (no database setup):**
+**Run with H2 (default — no database install):**
 ```bash
 cd backend
-mvn spring-boot:run -Dspring-boot.run.profiles=dev
+mvn spring-boot:run
 ```
 - API: http://localhost:8080  
 - H2 Console: http://localhost:8080/h2-console (JDBC URL: `jdbc:h2:mem:restaurant`, user: `sa`, password: empty)
 
 **Run with MySQL:**  
-Set `spring.datasource.url`, `username`, and `password` in `backend/src/main/resources/application.properties`, then:
+Use the `mysql` Spring profile and set credentials via environment variables (never commit passwords):
+
 ```bash
 cd backend
-mvn spring-boot:run
+export MYSQL_USERNAME=root
+export MYSQL_PASSWORD=yourpassword
+mvn spring-boot:run -Dspring-boot.run.profiles=mysql
 ```
+
+Optional: override the JDBC URL with `MYSQL_URL`. You can also use a local, untracked `application-local.properties` (see `.gitignore`).
 
 See [backend/README.md](backend/README.md) for full API documentation.
 
@@ -64,4 +72,4 @@ See [backend/README.md](backend/README.md) for full API documentation.
 
 ---
 
-*Built as a portfolio project demonstrating REST APIs, JPA, and layered architecture.*
+*Demonstrates REST APIs, JPA, and layered architecture for learning and portfolio use.*

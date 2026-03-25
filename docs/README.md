@@ -13,7 +13,7 @@ Put your screenshot images in this folder. Use these names (or similar) so the e
 | `03-orders-api.png` | Browser at `http://localhost:8080/orders` showing order(s) in JSON |
 | `04-orders-h2.png` | H2 Console with `SELECT * FROM ORDERS` and `SELECT * FROM ORDER_ITEMS` results |
 | `05-analytics.png` | Browser at `http://localhost:8080/analytics/sales` or `/analytics/top-items` showing summary JSON |
-| `06-backend-running.png` | Terminal with `mvn spring-boot:run -Dspring-boot.run.profiles=dev` and "Started RestaurantPlatformApplication" |
+| `06-backend-running.png` | Terminal with `mvn spring-boot:run` and "Started RestaurantPlatformApplication" |
 
 ## How to capture
 
